@@ -29787,7 +29787,193 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function App() {
   return /*#__PURE__*/_react.default.createElement("h1", null, "Hello Natacha and Rinon!!!!!!");
 }
-},{"react":"node_modules/react/index.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/context/reducer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Reducer;
+
+var _react = require("react");
+
+function Reducer() {
+  const [state, dispatch] = (0, _react.useReducer)((state, action) => {
+    switch (action.type) {
+      case "SET_JOBS":
+        {
+          return { ...state,
+            loading: action.loading,
+            allJobs: action.jobsData,
+            paginationHidden: action.isPaginationHidden
+          };
+        }
+
+      case "SET_DESCRIPTION":
+        {
+          return { ...state,
+            description: action.description
+          };
+        }
+
+      case "SET_LOCATION_VALUE":
+        {
+          return { ...state,
+            location: action.location
+          };
+        }
+
+      case "SET_FULLTIME_VALUE":
+        {
+          return { ...state,
+            fulltime: action.fulltime
+          };
+        }
+
+      case "SET_LOCATION_INPUT_VALUE":
+        {
+          return { ...state,
+            location: action.locationValue
+          };
+        }
+
+      default:
+        return state;
+    }
+  }, {
+    allJobs: [],
+    loading: true,
+    paginationHidden: true,
+    description: "",
+    location: "",
+    fulltime: false
+  });
+  const [pageCount, setPageCount] = (0, _react.useState)(0);
+  const [perPage] = (0, _react.useState)(5); // Fetch the first jobs to display 
+
+  async function fetchJobs(endpoint) {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    setPageCount(Math.ceil(data.length / perPage));
+    dispatch({
+      type: "SET_JOBS",
+      jobsData: data,
+      loading: false,
+      isPaginationHidden: false
+    });
+  }
+
+  return {
+    state,
+    dispatch,
+    perPage,
+    pageCount,
+    setPageCount,
+    fetchJobs
+  };
+}
+},{"react":"node_modules/react/index.js"}],"src/context/globalContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.GlobalContext = GlobalContext;
+exports.Context = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reducer = _interopRequireDefault(require("./reducer.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const Context = (0, _react.createContext)();
+exports.Context = Context;
+const API_URL = "https://jobs.github.com/positions.json?";
+const PROXI_URL = "https://cors-anywhere.herokuapp.com/";
+
+function GlobalContext({
+  children
+}) {
+  const {
+    state,
+    dispatch,
+    perPage,
+    pageCount,
+    setPageCount,
+    fetchJobs
+  } = (0, _reducer.default)(PROXI_URL, API_URL);
+  let {
+    description,
+    location,
+    fulltime
+  } = state;
+  const [offset, setOffset] = (0, _react.useState)(0); // Fetch jobs
+
+  let allJobsEndpoint = PROXI_URL + API_URL; // Change the endpoint depending on the search.
+  //  At the begining, it will fetch all works
+
+  if (description !== "") {
+    allJobsEndpoint = allJobsEndpoint + `description=${description}`;
+  } else {
+    allJobsEndpoint = PROXI_URL + API_URL;
+  }
+
+  if (description !== "" && location !== "") {
+    allJobsEndpoint = PROXI_URL + API_URL + `description=${description}` + "&" + `full_time=${fulltime}` + "&" + location;
+  }
+
+  if (description === "" && location !== "") {
+    allJobsEndpoint = PROXI_URL + API_URL + `full_time=${fulltime}` + "&" + location;
+  }
+
+  (0, _react.useEffect)(() => {
+    fetchJobs(allJobsEndpoint);
+  }, [offset, description, location, fulltime]);
+  console.log(state.allJobs);
+
+  function handleCheckbox(e) {
+    if (e.target.checked) {
+      dispatch({
+        type: "SET_JOBS",
+        jobsData: [],
+        loading: true
+      });
+      dispatch({
+        type: "SET_LOCATION_VALUE",
+        location: `location=${e.target.id}`
+      });
+    } else if (!e.target.checked) {
+      dispatch({
+        type: "SET_LOCATION_VALUE",
+        location: ""
+      });
+      dispatch({
+        type: "SET_JOBS",
+        jobsData: [],
+        loading: true
+      });
+    }
+  }
+
+  return /*#__PURE__*/_react.default.createElement(Context.Provider, {
+    value: {
+      state,
+      dispatch,
+      handleCheckbox,
+      pageCount,
+      setPageCount,
+      perPage,
+      offset,
+      setOffset
+    }
+  }, children);
+}
+},{"react":"node_modules/react/index.js","./reducer.js":"src/context/reducer.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29796,10 +29982,12 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _app = _interopRequireDefault(require("./app"));
 
+var _globalContext = require("./context/globalContext");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_app.default, null), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./app":"src/app.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_globalContext.GlobalContext, null, /*#__PURE__*/_react.default.createElement(_app.default, null)), document.getElementById("root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./app":"src/app.js","./context/globalContext":"src/context/globalContext.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29827,7 +30015,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51699" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52085" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
