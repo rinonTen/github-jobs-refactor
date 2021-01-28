@@ -1,0 +1,25 @@
+{
+  "name": "github-jobs-refactor",
+  "version": "1.0.0",
+  "description": "Refactoring the github jobs project  by using the architecture folders, global styles, styles components and compound components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onja-org/github-jobs-refactor.git"
+  },
+  "author": "Rinon Tendrinomena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onja-org/github-jobs-refactor/issues"
+  },
+  "homepage": "https://github.com/onja-org/github-jobs-refactor#readme",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
+  }
+}
