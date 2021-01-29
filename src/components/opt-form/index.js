@@ -1,14 +1,16 @@
-import React from 'react';
-import { Container, Form, Input, Button } from './styles/opt-form';
-
+import React, { useContext } from 'react';
+import { Container, SearchForm, Input, Button } from './styles/opt-form';
+ 
 export default function Form({children, ...restProps}) {
+
     return (
         <Container {...restProps}>
-            <Form>
                 {children}
-            </Form>
         </Container>
     )
+}
+Form.SearchForm = function FormSearchForm({onSubmit, children, ...restProps}) {
+    return <SearchForm {...restProps} onSubmit={onSubmit}> {children} </SearchForm>
 }
 
 Form.Input = function FormInput({placeholder, name, ...restProps}) {

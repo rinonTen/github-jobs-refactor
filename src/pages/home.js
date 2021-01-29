@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Loading }from '../components';
-import { HomeContainer } from '../containers';
+import { HeaderContainer, HomeContainer, LocationSearchContainer } from '../containers';
 import { Context } from '../context/globalContext';
 
 export default function Home() {
@@ -20,6 +20,8 @@ export default function Home() {
 
   return (
     <>
+      <HeaderContainer />
+      <LocationSearchContainer />
       {jobsElements}
     </>
   )
