@@ -1,8 +1,39 @@
 import styled from 'styled-components';
-const Section = styled.section``;
+const Section = styled.section`
+    @media(min-width: 1114px) { 
+        margin-bottom: 32px;
+    }
+`;
 
-const Group = styled.div`
-    
+const Group = styled.div`  
+    display: flex; 
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #B9BDCF;
+    margin-top: 32px;
+    margin-left: auto;
+
+    & ~ & {
+        max-width: 60%;
+        justify-content: space-between;
+
+        @media(min-width: 1114px) {
+            margin-top: -32px;
+        }
+       
+
+        article {
+            display: flex;
+           p {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px; 
+            color: #B9BDCF;
+           }
+        }
+    }
 `;
 
 const Container = styled.div`
@@ -15,22 +46,17 @@ const Container = styled.div`
     border-radius: 4px;
 
     ${Group}:first-of-type {
+        width: 100%;
         display: grid;
         grid-template-columns: 30% 67%;
         grid-gap: 32px;
-    }
 
-    ${Group}:last-of-type {
-    display: flex;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    color: #B9BDCF;
-    margin-top: 32px;
+        @media(min-width: 1114px) {
+            width: unset;
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: auto;
+        }
     }
 `;
 
@@ -39,6 +65,11 @@ const Article = styled.article``;
 const Image = styled.img`
     max-width: 100%;
     align-self: center;
+
+    @media(min-width: 1114px) {
+        width: 121px;
+        height: auto;
+    }
 `;
 
 const JobName = styled.h2`
@@ -56,11 +87,12 @@ const JobTitle = styled.p`
     margin-bottom: 8px;
 `;
 
-const Date = styled.p``;
-
 const JobInfo = styled.div``;
 
-const LocationName = styled.p``
+const LocationName = styled.p``;
+
+const Date = styled.p` 
+`;
 
 const JobType = styled.p`
     border: 1px solid #334680;

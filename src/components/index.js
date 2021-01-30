@@ -4,5 +4,6 @@ export {default as Form} from './opt-form';
 export {default as Card} from './card';
 export {default as LocationSearch} from './locationSearchForm';
 export {default as JobDetails} from './jobDetails';
+export {default as Containers} from './containers';
 
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../components';
+import { CalculateDate } from '../utils/date';
 
 export default function HomeContainer({id, company_logo, company, title, type, location, created_at }) {
+     
     return (
         <Card.Section>
             <Link to={`/${id}`}>
@@ -16,11 +18,14 @@ export default function HomeContainer({id, company_logo, company, title, type, l
                         </Card.Article>
                     </Card.Group>
                     <Card.Group>
-                        <Card.LocationName>{location}</Card.LocationName>
-                        <React.Fragment>
+                        <Card.Article>
                             <Card.Image src="lll" alt="Icon" />
-                            <Card.Date>{created_at}</Card.Date>
-                        </React.Fragment>
+                            <Card.LocationName>{location}</Card.LocationName>
+                        </Card.Article>
+                        <Card.Article>
+                            <Card.Image src="lll" alt="Icon" />
+                            <Card.Date>{CalculateDate(created_at)}{CalculateDate(created_at) > 1 ? " days" : " day" } ago</Card.Date>
+                        </Card.Article>
                     </Card.Group>
                 </Card>
             </Link>

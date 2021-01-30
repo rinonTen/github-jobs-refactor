@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { Loading }from '../components';
+import { Containers, Loading } from '../components';
+import { SectionContainer } from '../components/containers/styles/containers';
 import { HeaderContainer, HomeContainer, LocationSearchContainer } from '../containers';
 import { Context } from '../context/globalContext';
 
@@ -9,7 +10,7 @@ export default function Home() {
   const { allJobs, loading } = state;
 
   const jobsElements = allJobs === [] || loading ?
-    <Loading /> 
+    <Loading />
     :
 
     allJobs.map((job) => {
@@ -20,9 +21,13 @@ export default function Home() {
 
   return (
     <>
-      <HeaderContainer />
-      <LocationSearchContainer />
-      {jobsElements}
+      <Containers>
+        <HeaderContainer />
+        <LocationSearchContainer />
+        <Containers.SectionContainer>
+          {jobsElements}
+        </Containers.SectionContainer>
+      </Containers>
     </>
   )
 }
