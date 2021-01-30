@@ -18,8 +18,8 @@ export default function LocationSearchContainer() {
     }
 
     return (
-        <>
-             <LocationSearch.Checkbox id="full-time" type="checkbox" onChange={searchFullTimeJobs} location="Full time"/>
+        <LocationSearch>
+            <LocationSearch.Checkbox id="full-time" type="checkbox" onChange={searchFullTimeJobs} location="Full time"/>
             <LocationSearch.Label htmlFor="location">Location:</LocationSearch.Label> 
             <LocationSearch.Input
                 type="text"
@@ -32,6 +32,6 @@ export default function LocationSearchContainer() {
              <LocationSearch.Checkbox id="amsterdam" type="checkbox" onChange={handleCheckbox} location="Amsterdam"/>
              <LocationSearch.Checkbox id="new-york" type="checkbox" onChange={handleCheckbox} location="New York"/>
              <LocationSearch.Checkbox id="berlin" type="checkbox" onChange={handleCheckbox} location="Berlin"/>
-        </>
+        </LocationSearch>
     )
 }

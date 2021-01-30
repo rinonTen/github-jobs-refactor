@@ -33,8 +33,7 @@ if(description !== "" ) {
 useEffect(() => {
   fetchJobs(allJobsEndpoint);
 }, [offset, description, location, fulltime])
-
-console.log(state.allJobs);
+ 
  
   function handleCheckbox(e) {
     if (e.target.checked) {

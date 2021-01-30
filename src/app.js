@@ -1,10 +1,18 @@
 import React from 'react';
-import  Home from './pages/home';
+import { Route, Switch } from 'react-router';
+import  {Home, JobDetails} from './pages';
 
 export default function App() {
     return ( 
         <>
-           <Home />
+            <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/:jobId">
+                    <JobDetails />
+                </Route>
+            </Switch>
         </> 
     )
 }

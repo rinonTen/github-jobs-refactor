@@ -14,4 +14,21 @@ export const GlobalStyles = createGlobalStyle`
     padding: 12px;
     background: #F6F7FB;
     }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
 `
