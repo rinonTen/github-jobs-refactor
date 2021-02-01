@@ -1,23 +1,28 @@
 import React, { useContext } from 'react'
 import { Containers, Loading } from '../components';
+import ReactPaginate from 'react-paginate';
 import { SectionContainer } from '../components/containers/styles/containers';
 import { HeaderContainer, HomeContainer, LocationSearchContainer } from '../containers';
 import { Context } from '../context/globalContext';
 
 export default function Home() {
-  const { state } = useContext(Context);
-
-  const { allJobs, loading } = state;
+  const { state, perPage, pageCount, offset, setOffset  } = useContext(Context);
+ 
+  const { allJobs, loading, paginationHidden } = state;
+ 
 
   const jobsElements = allJobs === [] || loading ?
     <Loading />
     :
 
-    allJobs.map((job) => {
+    allJobs.slice(offset, offset + perPage).map((job) => {
       return <HomeContainer key={job.id} {...job}></HomeContainer>
     })
-
-  console.log(jobsElements)
+ 
+    const handlePageClick = (e) => {
+      const selectedPage = e.selected; 
+      setOffset(selectedPage + 1)
+  };
 
   return (
     <>
@@ -26,6 +31,24 @@ export default function Home() {
         <LocationSearchContainer />
         <Containers.SectionContainer>
           {jobsElements}
+        </Containers.SectionContainer>
+        <Containers.SectionContainer>
+        {
+            paginationHidden == false &&
+            <ReactPaginate
+                previousLabel={"prev"}
+                nextLabel={"next"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+            />
+            }
         </Containers.SectionContainer>
       </Containers>
     </>

@@ -18,12 +18,7 @@ const Group = styled.div`
     & ~ & {
         max-width: 60%;
         justify-content: space-between;
-
-        @media(min-width: 1114px) {
-            /* margin-top: -32px; */
-        }
-       
-
+        
         article {
             display: flex;
            p {

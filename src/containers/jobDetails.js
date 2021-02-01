@@ -13,7 +13,6 @@ export default function JobDetailsContainer({jobDetails}) {
                 </Link>
                 <JobDetails.ArticleHeading >How to apply</JobDetails.ArticleHeading>
                 <JobDetails.TextContainer dangerouslySetInnerHTML={{ __html: jobDetails.how_to_apply }}>
-                {/* Please email a copy of your resume and online portfolio to wes@kasisto.com & CC eric@kasisto.com */}
                 </JobDetails.TextContainer>
             </JobDetails.Article>
             <JobDetails.Article>
