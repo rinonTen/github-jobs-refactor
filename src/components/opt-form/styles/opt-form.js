@@ -30,7 +30,7 @@ const SearchForm = styled.form`
 `;
 
 const  Input = styled.input`
-    flex-basis: 70%;
+    width: 70%;
     padding: 16px;
     border: none;
 `;

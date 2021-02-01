@@ -35903,7 +35903,7 @@ const SearchForm = _styledComponents.default.form`
 `;
 exports.SearchForm = SearchForm;
 const Input = _styledComponents.default.input`
-    flex-basis: 70%;
+    width: 70%;
     padding: 16px;
     border: none;
 `;
@@ -36005,7 +36005,7 @@ const Group = _styledComponents.default.div`
         justify-content: space-between;
 
         @media(min-width: 1114px) {
-            margin-top: -32px;
+            /* margin-top: -32px; */
         }
        
 
@@ -36019,6 +36019,7 @@ const Group = _styledComponents.default.div`
            }
         }
     }
+ 
 `;
 exports.Group = Group;
 const Container = _styledComponents.default.div`
@@ -36030,18 +36031,41 @@ const Container = _styledComponents.default.div`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
 
+    @media(min-width: 1114px) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+
     ${Group}:first-of-type {
-        width: 100%;
+        width: 100%; 
         display: grid;
         grid-template-columns: 30% 67%;
         grid-gap: 32px;
 
         @media(min-width: 1114px) {
             width: unset;
+            grid-template-columns: auto auto;
             margin-top: 0;
             margin-left: 0;
             margin-right: auto;
         }
+    }
+
+    ${Group}:nth-of-type(2) {
+        align-items: flex-end;
+        margin-left: 0;
+        flex-basis: 30%;
+
+       article {
+           display: flex;
+           align-items: flex-end;
+
+           img {
+               width: unset;
+               height: unset;
+           }
+       }
     }
 `;
 exports.Container = Container;
@@ -36052,8 +36076,8 @@ const Image = _styledComponents.default.img`
     align-self: center;
 
     @media(min-width: 1114px) {
-        width: 121px;
-        height: auto;
+        width: 90px;
+        height: 90px;
     }
 `;
 exports.Image = Image;
@@ -36070,6 +36094,12 @@ const JobTitle = _styledComponents.default.p`
     line-height: 19px;
     color: #334680;
     margin-bottom: 8px;
+
+    @media(min-width: 1114px){
+        font-size: 18px;
+        line-height: 21px;
+    }
+
 `;
 exports.JobTitle = JobTitle;
 const JobInfo = _styledComponents.default.div``;
@@ -36293,19 +36323,33 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Container = _styledComponents.default.section`
- a {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px; 
-    color: #1E86FF
- }
-`;
-exports.Container = Container;
 const Article = _styledComponents.default.article``;
 exports.Article = Article;
+const Container = _styledComponents.default.section` 
+    padding: 16px;
+
+    a {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px; 
+        color: #1E86FF
+    }
+
+    @media(min-width: 1114px) {
+        max-width: 1114px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        padding: 0;
+        padding-top: 12px;
+        grid-template-columns: 25% 75%; 
+        column-gap: 77px;
+    }
+ 
+`;
+exports.Container = Container;
 const ArticleHeading = _styledComponents.default.h2`
     font-family: Poppins;
     font-style: normal;
@@ -36314,9 +36358,18 @@ const ArticleHeading = _styledComponents.default.h2`
     line-height: 21px; 
     text-transform: uppercase;
     color: #B9BDCF;
+
+    @media(min-width: 1114px) {
+        margin-top: 36px;
+        margin-bottom: 16px;
+    }
 `;
 exports.ArticleHeading = ArticleHeading;
-const TextContainer = _styledComponents.default.div``;
+const TextContainer = _styledComponents.default.div`
+    @media(min-width: 1114px) {
+        /* max-width: 750px; */
+    }
+`;
 exports.TextContainer = TextContainer;
 const Link = _styledComponents.default.a``;
 exports.Link = Link;
@@ -36328,6 +36381,16 @@ const Header = _styledComponents.default.header`
         font-size: 24px;
         line-height: 28px;
         color: #334680;
+        text-transform: lowercase;
+        margin: 0;
+        margin-top: 36px;
+        margin-bottom: 9px;
+
+
+        @media(min-width: 1114px) { 
+            margin-top: 0;
+            max-width: fit-content;
+        }
     }
 
     p {
@@ -36339,7 +36402,14 @@ const Header = _styledComponents.default.header`
         margin-bottom: 10px;
     }
 
-    
+    @media(min-width: 1114px) {
+            display: grid;
+            grid-template-columns: auto auto;
+
+            p {
+                max-width: unset;
+            }
+    }
 `;
 exports.Header = Header;
 const Span = _styledComponents.default.span`
@@ -36358,6 +36428,20 @@ const Frame = _styledComponents.default.div`
     img {
         width: 62px;
         height: 62px;   
+    }
+
+    img ~ div{ 
+        p {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 21px; 
+            color: #334680
+        }
+
+        span {
+            margin-top: 28px;
+            display: block;
+        }
     }
 `;
 exports.Frame = Frame;
@@ -36476,12 +36560,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Main = _styledComponents.default.main`
 
 @media(min-width: 1114px) {
+    max-width: 1114px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: 25% auto;
     column-gap: 32px;
 
     .sc-dlfnbm {
         grid-column: 1/3;
+        margin-bottom: 26px;
     } 
 
     .sc-dlfnbm ~ form {
@@ -37185,8 +37273,12 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     line-height: 150%;
     color: #334680;
     margin: 0;
-    padding: 12px;
+    padding: 0;
     background: #F6F7FB;
+    }
+
+    body {
+        padding: 0;
     }
 
     a {
@@ -37253,7 +37345,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49837" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49880" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

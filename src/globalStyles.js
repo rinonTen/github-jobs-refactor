@@ -11,8 +11,12 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 150%;
     color: #334680;
     margin: 0;
-    padding: 12px;
+    padding: 0;
     background: #F6F7FB;
+    }
+
+    body {
+        padding: 0;
     }
 
     a {
