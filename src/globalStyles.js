@@ -2,17 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     html, body {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialised;
-        -moz-osx-font-something: antialised;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    color: #334680;
-    margin: 0;
-    padding: 0;
-    background: #F6F7FB;
+        font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialised;
+            -moz-osx-font-something: antialised;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+        color: #334680;
+        margin: 0;
+        padding: 12px;
+        background: #F6F7FB;
     }
 
     body {
@@ -37,15 +37,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
 
-.pagination {
-    display: flex;
-}
 
 .pagination {
     margin: 15px auto;
     display: flex;
     list-style: none;
-    outline: none;
+    outline: none; 
 }
 
 .pagination>.active > a,

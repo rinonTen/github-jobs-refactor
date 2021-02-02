@@ -12,7 +12,7 @@ const Container = styled.section`
     padding: 16px;
 
     a {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -34,11 +34,12 @@ const Container = styled.section`
 `;
 
 const ArticleHeading = styled.h2`
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 21px; 
+    margin-top: 32px;
     text-transform: uppercase;
     color: #B9BDCF;
 
@@ -47,11 +48,7 @@ const ArticleHeading = styled.h2`
         margin-bottom: 16px;
     }
 `;
-const TextContainer = styled.div`
-    @media(min-width: 1114px) {
-        /* max-width: 750px; */
-    }
-`;
+const TextContainer = styled.div``;
 const Link = styled.a``;
 
 const ArticleParagraph = styled.p``;
@@ -98,6 +95,14 @@ const Span = styled.span`
     font-size: 12px;
     line-height: 14px;
     color: #B7BCCE;
+
+    @media(min-width: 1114px) {
+                margin-left: 2px;
+    }
+
+    svg {
+            transform: translate(-4px, 4px);
+        }
 `;
 
 const Frame = styled.div` 
@@ -120,9 +125,14 @@ const Frame = styled.div`
         }
 
         span {
-            margin-top: 28px;
+            margin-top: 20px;
             display: block;
+
+            @media(min-width: 1114px) {
+                margin-left: 2px; 
+            }
         }
+        
     }
 `;
 const Group = styled.div``;

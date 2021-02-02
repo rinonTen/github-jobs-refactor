@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 const Section = styled.section`
     @media(min-width: 1114px) { 
-        margin-bottom: 32px;
+        margin-bottom: 32px; 
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
     }
 `;
 
@@ -11,8 +17,7 @@ const Group = styled.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    color: #B9BDCF;
-    margin-top: 32px;
+    color: #B9BDCF; 
     margin-left: auto;
 
     & ~ & {
@@ -36,14 +41,17 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 16px;
+    padding-bottom: 0;
     margin-bottom: 16px;
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    border-radius: 4px; 
 
     @media(min-width: 1114px) {
         flex-direction: row;
         align-items: flex-end;
+        padding-bottom: 16px;
+
     }
 
 
@@ -64,8 +72,15 @@ const Container = styled.div`
 
     ${Group}:nth-of-type(2) {
         align-items: flex-end;
-        margin-left: 0;
+        margin-left: 38%;
         flex-basis: 30%;
+        padding-top: 26px;
+        padding-bottom: 16px;
+
+        @media(min-width: 1114px) {
+            margin-left: 0;
+            padding-bottom: 8px;
+        }
 
        article {
            display: flex;

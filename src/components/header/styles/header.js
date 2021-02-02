@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 const Container = styled.div``;
 const Title = styled.h1`
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
     margin: 0;
     font-size: 24px;
     line-height: 36px;
     color: #282538;
-    font-weight: normal;
     margin-top: 32px;
     margin-bottom: 32px;
 

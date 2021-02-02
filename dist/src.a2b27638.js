@@ -35427,11 +35427,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Container = _styledComponents.default.div``;
 exports.Container = Container;
 const Title = _styledComponents.default.h1`
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
     margin: 0;
     font-size: 24px;
     line-height: 36px;
     color: #282538;
-    font-weight: normal;
     margin-top: 32px;
     margin-bottom: 32px;
 
@@ -35606,7 +35607,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Section = _styledComponents.default.section`
     @media(min-width: 1114px) { 
-        margin-bottom: 32px;
+        margin-bottom: 32px; 
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
     }
 `;
 exports.Section = Section;
@@ -35616,8 +35623,7 @@ const Group = _styledComponents.default.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    color: #B9BDCF;
-    margin-top: 32px;
+    color: #B9BDCF; 
     margin-left: auto;
 
     & ~ & {
@@ -35641,14 +35647,17 @@ const Container = _styledComponents.default.div`
     display: flex;
     flex-direction: column;
     padding: 16px;
+    padding-bottom: 0;
     margin-bottom: 16px;
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    border-radius: 4px; 
 
     @media(min-width: 1114px) {
         flex-direction: row;
         align-items: flex-end;
+        padding-bottom: 16px;
+
     }
 
 
@@ -35669,8 +35678,15 @@ const Container = _styledComponents.default.div`
 
     ${Group}:nth-of-type(2) {
         align-items: flex-end;
-        margin-left: 0;
+        margin-left: 38%;
         flex-basis: 30%;
+        padding-top: 26px;
+        padding-bottom: 16px;
+
+        @media(min-width: 1114px) {
+            margin-left: 0;
+            padding-bottom: 8px;
+        }
 
        article {
            display: flex;
@@ -35867,6 +35883,7 @@ const Container = _styledComponents.default.form`
     }
 
    ${Checkbox}:first-of-type ~ label {
+        font-family: 'Poppins', sans-serif;
         font-weight: bold;
         font-size: 14px;
         line-height: 21px; 
@@ -35878,6 +35895,15 @@ exports.Container = Container;
 const Label = _styledComponents.default.label`
     ::first-of-type {
         margin-bottom: 16px;
+    }
+
+    span {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px; 
+        color: #334680;
     }
 `;
 exports.Label = Label;
@@ -35963,7 +35989,7 @@ const Container = _styledComponents.default.section`
     padding: 16px;
 
     a {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -35985,11 +36011,12 @@ const Container = _styledComponents.default.section`
 `;
 exports.Container = Container;
 const ArticleHeading = _styledComponents.default.h2`
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 21px; 
+    margin-top: 32px;
     text-transform: uppercase;
     color: #B9BDCF;
 
@@ -35999,11 +36026,7 @@ const ArticleHeading = _styledComponents.default.h2`
     }
 `;
 exports.ArticleHeading = ArticleHeading;
-const TextContainer = _styledComponents.default.div`
-    @media(min-width: 1114px) {
-        /* max-width: 750px; */
-    }
-`;
+const TextContainer = _styledComponents.default.div``;
 exports.TextContainer = TextContainer;
 const Link = _styledComponents.default.a``;
 exports.Link = Link;
@@ -36051,6 +36074,14 @@ const Span = _styledComponents.default.span`
     font-size: 12px;
     line-height: 14px;
     color: #B7BCCE;
+
+    @media(min-width: 1114px) {
+                margin-left: 2px;
+    }
+
+    svg {
+            transform: translate(-4px, 4px);
+        }
 `;
 exports.Span = Span;
 const Frame = _styledComponents.default.div` 
@@ -36073,9 +36104,14 @@ const Frame = _styledComponents.default.div`
         }
 
         span {
-            margin-top: 28px;
+            margin-top: 20px;
             display: block;
+
+            @media(min-width: 1114px) {
+                margin-left: 2px; 
+            }
         }
+        
     }
 `;
 exports.Frame = Frame;
@@ -36735,9 +36771,27 @@ function JobDetailsContainer({
     dangerouslySetInnerHTML: {
       __html: jobDetails.how_to_apply
     }
-  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Article, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Header, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleHeading, null, jobDetails.title), /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleParagraph, null, jobDetails.type), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Span, null, (0, _date.CalculateDate)(jobDetails.created_at) > 1 ? (0, _date.CalculateDate)(jobDetails.created_at) + ' days' : (0, _date.CalculateDate)(jobDetails.created_at) + ' day', " ago ")), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Image, {
+  })), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Article, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Header, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleHeading, null, jobDetails.title), /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleParagraph, null, jobDetails.type), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Span, null, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M8.9925 1.5C4.8525 1.5 1.5 4.86 1.5 9C1.5 13.14 4.8525 16.5 8.9925 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 8.9925 1.5ZM9 15C5.685 15 3 12.315 3 9C3 5.685 5.685 3 9 3C12.315 3 15 5.685 15 9C15 12.315 12.315 15 9 15ZM8.835 5.25H8.79C8.49 5.25 8.25 5.49 8.25 5.79V9.33C8.25 9.5925 8.385 9.84 8.6175 9.975L11.73 11.8425C11.985 11.9925 12.315 11.9175 12.465 11.6625C12.6225 11.4075 12.54 11.07 12.2775 10.92L9.375 9.195V5.79C9.375 5.49 9.135 5.25 8.835 5.25Z",
+    fill: "#B7BCCE"
+  }))), (0, _date.CalculateDate)(jobDetails.created_at) > 1 ? (0, _date.CalculateDate)(jobDetails.created_at) + ' days' : (0, _date.CalculateDate)(jobDetails.created_at) + ' day', " ago")), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Image, {
     src: jobDetails.company_logo
-  }), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Group, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleParagraph, null, jobDetails.company), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Span, null, jobDetails.location))), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.TextContainer, {
+  }), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Group, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleParagraph, null, jobDetails.company), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Span, null, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M9 2C4.86 2 1.5 5.36 1.5 9.5C1.5 13.64 4.86 17 9 17C13.14 17 16.5 13.64 16.5 9.5C16.5 5.36 13.14 2 9 2ZM8.25 15.4475C5.2875 15.08 3 12.56 3 9.5C3 9.035 3.06 8.5925 3.1575 8.1575L6.75 11.75V12.5C6.75 13.325 7.425 14 8.25 14V15.4475ZM13.425 13.5425C13.23 12.935 12.675 12.5 12 12.5H11.25V10.25C11.25 9.8375 10.9125 9.5 10.5 9.5H6V8H7.5C7.9125 8 8.25 7.6625 8.25 7.25V5.75H9.75C10.575 5.75 11.25 5.075 11.25 4.25V3.9425C13.4475 4.835 15 6.9875 15 9.5C15 11.06 14.4 12.4775 13.425 13.5425Z",
+    fill: "#B9BDCF"
+  }))), jobDetails.location))), /*#__PURE__*/_react.default.createElement(_components.JobDetails.Frame, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.TextContainer, {
     dangerouslySetInnerHTML: {
       __html: jobDetails.description
     }
@@ -36945,17 +36999,17 @@ var _styledComponents = require("styled-components");
 
 const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     html, body {
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialised;
-        -moz-osx-font-something: antialised;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    color: #334680;
-    margin: 0;
-    padding: 0;
-    background: #F6F7FB;
+        font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialised;
+            -moz-osx-font-something: antialised;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 150%;
+        color: #334680;
+        margin: 0;
+        padding: 12px;
+        background: #F6F7FB;
     }
 
     body {
@@ -36980,15 +37034,12 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     }
 
 
-.pagination {
-    display: flex;
-}
 
 .pagination {
     margin: 15px auto;
     display: flex;
     list-style: none;
-    outline: none;
+    outline: none; 
 }
 
 .pagination>.active > a,
@@ -37077,7 +37128,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55618" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58678" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

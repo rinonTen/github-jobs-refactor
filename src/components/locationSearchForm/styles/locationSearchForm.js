@@ -25,6 +25,7 @@ const Container = styled.form`
     }
 
    ${Checkbox}:first-of-type ~ label {
+        font-family: 'Poppins', sans-serif;
         font-weight: bold;
         font-size: 14px;
         line-height: 21px; 
@@ -36,6 +37,15 @@ const Container = styled.form`
 const Label = styled.label`
     ::first-of-type {
         margin-bottom: 16px;
+    }
+
+    span {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px; 
+        color: #334680;
     }
 `;
 
