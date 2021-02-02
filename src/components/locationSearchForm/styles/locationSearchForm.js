@@ -6,8 +6,15 @@ const Input = styled.input`
         border-radius: 4px;
         margin-bottom: 16px;
         margin-left: 0;
+        margin-right: 12px;
         padding: 16px;
         border: none;
+`;
+
+const Checkbox = styled.div`
+    :nth-of-type(1) {
+        margin-bottom: 32px;
+    }
 `;
 
 const Container = styled.form`
@@ -15,6 +22,14 @@ const Container = styled.form`
 
     input {
         padding: 16px;
+    }
+
+   ${Checkbox}:first-of-type ~ label {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px; 
+        text-transform: uppercase;
+        color: #B9BDCF;
     }
 `;
 
@@ -25,7 +40,7 @@ const Label = styled.label`
 `;
 
 const Span = styled.span``;
-const Checkbox = styled.div``;
+
 
 
 

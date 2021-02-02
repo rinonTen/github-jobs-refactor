@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-const Article = styled.article``;
+const Article = styled.article`
+    :nth-of-type(2) {
+        @media(min-width: 1114px) {
+            padding-top: 100px;
+        }
+    }
+`;
 
 const Container = styled.section` 
     padding: 16px;
@@ -11,7 +17,8 @@ const Container = styled.section`
         font-weight: 500;
         font-size: 14px;
         line-height: 21px; 
-        color: #1E86FF
+        color: #1E86FF;
+        word-wrap: break-word;
     }
 
     @media(min-width: 1114px) {
@@ -19,8 +26,7 @@ const Container = styled.section`
         margin-left: auto;
         margin-right: auto;
         display: grid;
-        padding: 0;
-        padding-top: 12px;
+        padding: 0; 
         grid-template-columns: 25% 75%; 
         column-gap: 77px;
     }
@@ -82,7 +88,7 @@ const Header = styled.header`
             grid-template-columns: auto auto;
 
             p {
-                max-width: unset;
+                max-width: max-content;
             }
     }
 `;

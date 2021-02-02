@@ -35426,7 +35426,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const Container = _styledComponents.default.div``;
 exports.Container = Container;
-const Title = _styledComponents.default.h1``;
+const Title = _styledComponents.default.h1`
+    margin: 0;
+    font-size: 24px;
+    line-height: 36px;
+    color: #282538;
+    font-weight: normal;
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+    span {
+        font-weight: bold;
+    }
+`;
 exports.Title = Title;
 const Frame = _styledComponents.default.div``;
 exports.Frame = Frame;
@@ -35502,6 +35514,12 @@ const SearchForm = _styledComponents.default.form`
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    
+    @media(min-width: 1114px) {
+        max-width: 790px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 `;
 exports.SearchForm = SearchForm;
 const Input = _styledComponents.default.input`
@@ -35830,15 +35848,30 @@ const Input = _styledComponents.default.input`
         border-radius: 4px;
         margin-bottom: 16px;
         margin-left: 0;
+        margin-right: 12px;
         padding: 16px;
         border: none;
 `;
 exports.Input = Input;
+const Checkbox = _styledComponents.default.div`
+    :nth-of-type(1) {
+        margin-bottom: 32px;
+    }
+`;
+exports.Checkbox = Checkbox;
 const Container = _styledComponents.default.form`
     display: grid;
 
     input {
         padding: 16px;
+    }
+
+   ${Checkbox}:first-of-type ~ label {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 21px; 
+        text-transform: uppercase;
+        color: #B9BDCF;
     }
 `;
 exports.Container = Container;
@@ -35850,8 +35883,6 @@ const Label = _styledComponents.default.label`
 exports.Label = Label;
 const Span = _styledComponents.default.span``;
 exports.Span = Span;
-const Checkbox = _styledComponents.default.div``;
-exports.Checkbox = Checkbox;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/locationSearchForm/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -35920,7 +35951,13 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Article = _styledComponents.default.article``;
+const Article = _styledComponents.default.article`
+    :nth-of-type(2) {
+        @media(min-width: 1114px) {
+            padding-top: 100px;
+        }
+    }
+`;
 exports.Article = Article;
 const Container = _styledComponents.default.section` 
     padding: 16px;
@@ -35931,7 +35968,8 @@ const Container = _styledComponents.default.section`
         font-weight: 500;
         font-size: 14px;
         line-height: 21px; 
-        color: #1E86FF
+        color: #1E86FF;
+        word-wrap: break-word;
     }
 
     @media(min-width: 1114px) {
@@ -35939,8 +35977,7 @@ const Container = _styledComponents.default.section`
         margin-left: auto;
         margin-right: auto;
         display: grid;
-        padding: 0;
-        padding-top: 12px;
+        padding: 0; 
         grid-template-columns: 25% 75%; 
         column-gap: 77px;
     }
@@ -36004,7 +36041,7 @@ const Header = _styledComponents.default.header`
             grid-template-columns: auto auto;
 
             p {
-                max-width: unset;
+                max-width: max-content;
             }
     }
 `;
@@ -36175,10 +36212,14 @@ const Main = _styledComponents.default.main`
     }
  
 }
-    
 `;
 exports.Main = Main;
-const SectionContainer = _styledComponents.default.div``;
+const SectionContainer = _styledComponents.default.div`
+    :last-of-type {
+            max-width: 100%;
+            grid-column: 1/3;
+    }
+`;
 exports.SectionContainer = SectionContainer;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/containers/index.js":[function(require,module,exports) {
 "use strict";
@@ -36329,21 +36370,24 @@ function HomeContainer({
   }, /*#__PURE__*/_react.default.createElement(_components.Card, null, /*#__PURE__*/_react.default.createElement(_components.Card.Group, null, /*#__PURE__*/_react.default.createElement(_components.Card.Image, {
     src: company_logo,
     alt: `${company}'s logo`
-  }), /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement(_components.Card.JobName, null, company), /*#__PURE__*/_react.default.createElement(_components.Card.JobTitle, null, title), /*#__PURE__*/_react.default.createElement(_components.Card.JobType, null, type))), /*#__PURE__*/_react.default.createElement(_components.Card.Group, null, /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement(_components.Card.Image, {
-    src: "lll",
-    alt: "Icon"
-  }), /*#__PURE__*/_react.default.createElement(_components.Card.LocationName, null, location)), /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
+  }), /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement(_components.Card.JobName, null, company), /*#__PURE__*/_react.default.createElement(_components.Card.JobTitle, null, title), /*#__PURE__*/_react.default.createElement(_components.Card.JobType, null, type))), /*#__PURE__*/_react.default.createElement(_components.Card.Group, null, /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
   }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+    d: "M9 2C4.86 2 1.5 5.36 1.5 9.5C1.5 13.64 4.86 17 9 17C13.14 17 16.5 13.64 16.5 9.5C16.5 5.36 13.14 2 9 2ZM8.25 15.4475C5.2875 15.08 3 12.56 3 9.5C3 9.035 3.06 8.5925 3.1575 8.1575L6.75 11.75V12.5C6.75 13.325 7.425 14 8.25 14V15.4475ZM13.425 13.5425C13.23 12.935 12.675 12.5 12 12.5H11.25V10.25C11.25 9.8375 10.9125 9.5 10.5 9.5H6V8H7.5C7.9125 8 8.25 7.6625 8.25 7.25V5.75H9.75C10.575 5.75 11.25 5.075 11.25 4.25V3.9425C13.4475 4.835 15 6.9875 15 9.5C15 11.06 14.4 12.4775 13.425 13.5425Z",
+    fill: "#B9BDCF"
+  })), /*#__PURE__*/_react.default.createElement(_components.Card.LocationName, null, location)), /*#__PURE__*/_react.default.createElement(_components.Card.Article, null, /*#__PURE__*/_react.default.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 18 18",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M8.9925 1.5C4.8525 1.5 1.5 4.86 1.5 9C1.5 13.14 4.8525 16.5 8.9925 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 8.9925 1.5ZM9 15C5.685 15 3 12.315 3 9C3 5.685 5.685 3 9 3C12.315 3 15 5.685 15 9C15 12.315 12.315 15 9 15ZM8.835 5.25H8.79C8.49 5.25 8.25 5.49 8.25 5.79V9.33C8.25 9.5925 8.385 9.84 8.6175 9.975L11.73 11.8425C11.985 11.9925 12.315 11.9175 12.465 11.6625C12.6225 11.4075 12.54 11.07 12.2775 10.92L9.375 9.195V5.79C9.375 5.49 9.135 5.25 8.835 5.25Z",
+    fill: "#B7BCCE"
   })), /*#__PURE__*/_react.default.createElement(_components.Card.Date, null, (0, _date.CalculateDate)(created_at), (0, _date.CalculateDate)(created_at) > 1 ? " days" : " day", " ago"))))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../utils/date":"src/utils/date.js"}],"src/context/reducer.js":[function(require,module,exports) {
@@ -36685,7 +36729,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function JobDetailsContainer({
   jobDetails
 }) {
-  return /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Article, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement(_components.JobDetails, null, /*#__PURE__*/_react.default.createElement(_components.JobDetails.Article, null, /*#__PURE__*/_react.default.createElement(_components.Header, null, /*#__PURE__*/_react.default.createElement(_components.Header.Title, null, /*#__PURE__*/_react.default.createElement("span", null, "GithBub "), "Jobs")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "\u2190 Back to search"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.ArticleHeading, null, "How to apply"), /*#__PURE__*/_react.default.createElement(_components.JobDetails.TextContainer, {
     dangerouslySetInnerHTML: {
@@ -36792,13 +36836,13 @@ function Home() {
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_components.Containers, null, /*#__PURE__*/_react.default.createElement(_containers2.HeaderContainer, null), /*#__PURE__*/_react.default.createElement(_containers2.LocationSearchContainer, null), /*#__PURE__*/_react.default.createElement(_components.Containers.SectionContainer, null, jobsElements), /*#__PURE__*/_react.default.createElement(_components.Containers.SectionContainer, null, paginationHidden == false && /*#__PURE__*/_react.default.createElement(_reactPaginate.default, {
-    previousLabel: "prev",
-    nextLabel: "next",
+    previousLabel: "<",
+    nextLabel: ">",
     breakLabel: "...",
     breakClassName: "break-me",
     pageCount: pageCount,
-    marginPagesDisplayed: 2,
-    pageRangeDisplayed: 5,
+    marginPagesDisplayed: 1,
+    pageRangeDisplayed: 2,
     onPageChange: handlePageClick,
     containerClassName: "pagination",
     subContainerClassName: "pages pagination",
@@ -36947,17 +36991,28 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     outline: none;
 }
 
-.pagination>.active>a {
+.pagination>.active > a,
+.pagination>.active > a:hover {
     background-color: #47ccde;
     border-color: #47ccde;
     color: #fff;
 }
 
+
 .pagination>li>a {
-    border: 1px solid #47ccde;
-    padding: 5px 10px;
+    border: 1px solid #B7BCCE;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-right: 12px; 
+    padding: 5px 10px; 
+    color: #B7BCCE;
     outline: none;
     cursor: pointer;
+}
+
+.pagination > li > a:hover {
+    border: 1px solid #47ccde;
+    color: #47ccde;
 }
 
 .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
@@ -36965,11 +37020,7 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     border-color: #47ccde;
     outline: none;
 }
-
-.pagination>li>a, .pagination>li>span {
-    color: #47ccde
-}
-
+ 
 .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span {
     border-radius: unset
 }
@@ -36978,9 +37029,7 @@ const GlobalStyles = (0, _styledComponents.createGlobalStyle)`
     .pagination {
         justify-content: flex-end;
     }
-}
-
-`;
+}`;
 exports.GlobalStyles = GlobalStyles;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
@@ -37028,7 +37077,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49874" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55618" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

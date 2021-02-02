@@ -36,13 +36,13 @@ export default function Home() {
         {
             paginationHidden == false &&
             <ReactPaginate
-                previousLabel={"prev"}
-                nextLabel={"next"}
+                previousLabel={"<"}
+                nextLabel={">"}
                 breakLabel={"..."}
                 breakClassName={"break-me"}
                 pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={2}
                 onPageChange={handlePageClick}
                 containerClassName={"pagination"}
                 subContainerClassName={"pages pagination"}

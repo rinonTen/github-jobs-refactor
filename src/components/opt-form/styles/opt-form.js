@@ -27,6 +27,12 @@ const SearchForm = styled.form`
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    
+    @media(min-width: 1114px) {
+        max-width: 790px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 `;
 
 const  Input = styled.input`

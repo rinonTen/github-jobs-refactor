@@ -2,12 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { JobDetails } from '../components';
 import { CalculateDate } from '../utils/date';
+import { Header } from '../components';
 
 
-export default function JobDetailsContainer({jobDetails}) {
+
+export default function JobDetailsContainer({ jobDetails }) {
     return (
         <JobDetails>
             <JobDetails.Article>
+                <Header>
+                    <Header.Title>
+                        <span>GithBub </span>
+                        Jobs
+                    </Header.Title>
+                </Header>
                 <Link to='/'>
                     ← Back to search
                 </Link>
@@ -29,7 +37,7 @@ export default function JobDetailsContainer({jobDetails}) {
                     </JobDetails.Group>
                 </JobDetails.Frame>
                 <JobDetails.Frame>
-                     <JobDetails.TextContainer dangerouslySetInnerHTML={{ __html: jobDetails.description }}></JobDetails.TextContainer>
+                    <JobDetails.TextContainer dangerouslySetInnerHTML={{ __html: jobDetails.description }}></JobDetails.TextContainer>
                 </JobDetails.Frame>
             </JobDetails.Article>
         </JobDetails>

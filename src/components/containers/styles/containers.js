@@ -21,8 +21,12 @@ const Main = styled.main`
     }
  
 }
-    
 `;
-const SectionContainer = styled.div``;
+const SectionContainer = styled.div`
+    :last-of-type {
+            max-width: 100%;
+            grid-column: 1/3;
+    }
+`;
 
 export { Main, SectionContainer };
