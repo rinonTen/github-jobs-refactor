@@ -36,8 +36,13 @@ const SearchForm = styled.form`
 `;
 
 const  Input = styled.input`
+    background-image: url(../images/inputBg.svg);
+    background-repeat: no-repeat;
+    background-position-y: 9px;
+    background-position-x: 3px;
     width: 70%;
     padding: 16px;
+    padding-left: 32px;
     border: none;
 `;
 
