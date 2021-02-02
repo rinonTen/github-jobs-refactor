@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const Input = styled.input`
-        background: #FFFFFF;
+        background-color: #FFFFFF;
+        background-image: url(../images/locationIcon.svg);
+        background-repeat: no-repeat;
+        background-position: 8px 12px;
         box-shadow: 0px 2px 4px rgb(0 0 0 / 5%);
         border-radius: 4px;
         margin-bottom: 16px;
@@ -22,6 +25,7 @@ const Container = styled.form`
 
     input {
         padding: 16px;
+        padding-left: 32px;
     }
 
    ${Checkbox}:first-of-type ~ label {
@@ -29,6 +33,7 @@ const Container = styled.form`
         font-weight: bold;
         font-size: 14px;
         line-height: 21px; 
+        margin-bottom: 9px;
         text-transform: uppercase;
         color: #B9BDCF;
     }

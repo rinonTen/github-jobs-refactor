@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { JobDetails } from '../components';
 import { CalculateDate } from '../utils/date';
-import { Header } from '../components';
-
-
+import { Header } from '../components'; 
 
 export default function JobDetailsContainer({ jobDetails }) {
+ 
     return (
         <JobDetails>
             <JobDetails.Article>

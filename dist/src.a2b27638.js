@@ -35864,7 +35864,10 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Input = _styledComponents.default.input`
-        background: #FFFFFF;
+        background-color: #FFFFFF;
+        background-image: url(../images/locationIcon.svg);
+        background-repeat: no-repeat;
+        background-position: 8px 12px;
         box-shadow: 0px 2px 4px rgb(0 0 0 / 5%);
         border-radius: 4px;
         margin-bottom: 16px;
@@ -35885,6 +35888,7 @@ const Container = _styledComponents.default.form`
 
     input {
         padding: 16px;
+        padding-left: 32px;
     }
 
    ${Checkbox}:first-of-type ~ label {
@@ -35892,6 +35896,7 @@ const Container = _styledComponents.default.form`
         font-weight: bold;
         font-size: 14px;
         line-height: 21px; 
+        margin-bottom: 9px;
         text-transform: uppercase;
         color: #B9BDCF;
     }
@@ -36612,7 +36617,8 @@ function GlobalContext({
       setPageCount,
       perPage,
       offset,
-      setOffset
+      setOffset,
+      fetchJobs
     }
   }, children);
 }
@@ -37133,7 +37139,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58678" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54218" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -47,7 +47,7 @@ useEffect(() => {
  
    
   return (
-    <Context.Provider value={{ state, dispatch, handleCheckbox, pageCount, setPageCount, perPage, offset, setOffset }}>
+    <Context.Provider value={{ state, dispatch, handleCheckbox, pageCount, setPageCount, perPage, offset, setOffset, fetchJobs }}>
       {children}
     </Context.Provider>
   )
