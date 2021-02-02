@@ -23,7 +23,7 @@ export default function HeaderContainer() {
             <Header.Frame>
                 <Form>
                     <Form.SearchForm onSubmit={searchJobs}>
-                        <Form.Input name="description" placeholder="Title, companies, expertise or benefits" required/>
+                        <Form.Input name="description" placeholder="Title, companies, expertise or benefits" />
                         <Form.Button>Search</Form.Button>
                     </Form.SearchForm>
                 </Form>

@@ -36663,8 +36663,7 @@ function HeaderContainer() {
     onSubmit: searchJobs
   }, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
     name: "description",
-    placeholder: "Title, companies, expertise or benefits",
-    required: true
+    placeholder: "Title, companies, expertise or benefits"
   }), /*#__PURE__*/_react.default.createElement(_components.Form.Button, null, "Search")))));
 }
 },{"react":"node_modules/react/index.js","../components":"src/components/index.js","../context/globalContext":"src/context/globalContext.js"}],"src/containers/locationSearch.js":[function(require,module,exports) {
